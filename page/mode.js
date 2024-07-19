@@ -57,6 +57,7 @@ Page({
             text_style: hmUI.text_style.NONE,
             text: "6h-23h"
         })
+
         hmUI.createWidget(hmUI.widget.TEXT, {
             x: 0,
             y: 193,
@@ -81,6 +82,81 @@ Page({
             align_v: hmUI.align.CENTER_V,
             text_style: hmUI.text_style.NONE,
             text: "8h-18h"
+        })
+
+        hmUI.createWidget(hmUI.widget.TEXT, {
+            x: 0,
+            y: 263,
+            w: DEVICE_WIDTH*(2/3),
+            h: 30,
+            color: 0xffffff,
+            text_size: TEXT_SIZE,
+            align_h: hmUI.align.LEFT_H,
+            align_v: hmUI.align.CENTER_V,
+            text_style: hmUI.text_style.NONE,
+            text: gettext("Focus")
+        })
+
+        hmUI.createWidget(hmUI.widget.TEXT, {
+            x: 0,
+            y: 290,
+            w: DEVICE_WIDTH*(2/3),
+            h: 25,
+            color: 0xb2b2b2,
+            text_size: TEXT_SIZE_2,
+            align_h: hmUI.align.LEFT_H,
+            align_v: hmUI.align.CENTER_V,
+            text_style: hmUI.text_style.NONE,
+            text: gettext("Next 2 hours")
+        })
+
+        const modeGroup = hmUI.createWidget(hmUI.widget.RADIO_GROUP, {
+            x: DEVICE_WIDTH*(2/3),
+            y: 0,
+            w: DEVICE_WIDTH*(1/3),
+            h: DEVICE_HEIGHT,
+            select_src: 'selected.png',
+            unselect_src: 'unselected.png',
+            check_func: (group, index, checked) => {
+                console.log('index', index)
+                console.log('checked', checked)
+                if (checked) {
+                    switch (index) {
+                        case 0:
+                            console.log("SAVED THE FINISH HOUR?",hmFS.SysProSetInt('FinishHour', 23));
+                            console.log("SAVED THE FINISH MINUTE? ",hmFS.SysProSetInt('FinishMinute', 59));
+                            console.log("SAVED THE START HOUR?",hmFS.SysProSetInt('StartHour',0));
+                            console.log("SAVED THE START MINUTE?",hmFS.SysProSetInt('StartMinute',0));
+                            console.log("SAVED THE MODE?", hmFS.SysProSetInt('Mode', 1));
+                            break;
+                        case 1:
+                            console.log("SAVED THE FINISH HOUR?",hmFS.SysProSetInt('FinishHour', 23));
+                            console.log("SAVED THE FINISH MINUTE? ",hmFS.SysProSetInt('FinishMinute', 0));
+                            console.log("SAVED THE START HOUR?",hmFS.SysProSetInt('StartHour',6));
+                            console.log("SAVED THE START MINUTE?",hmFS.SysProSetInt('StartMinute',0));
+                            console.log("SAVED THE MODE?", hmFS.SysProSetInt('Mode', 2));
+                            break;
+                        case 2:
+                            console.log("SAVED THE FINISH HOUR?",hmFS.SysProSetInt('FinishHour', 18));
+                            console.log("SAVED THE FINISH MINUTE? ",hmFS.SysProSetInt('FinishMinute', 0));
+                            console.log("SAVED THE START HOUR?",hmFS.SysProSetInt('StartHour',8));
+                            console.log("SAVED THE START MINUTE?",hmFS.SysProSetInt('StartMinute',0));
+                            console.log("SAVED THE MODE?", hmFS.SysProSetInt('Mode', 3));
+                            break;
+                        case 3:
+                            const time = hmSensor.createSensor(hmSensor.id.TIME)
+                            console.log("SAVED THE FINISH HOUR?",hmFS.SysProSetInt('FinishHour', time.hour+2));
+                            console.log("SAVED THE FINISH MINUTE? ",hmFS.SysProSetInt('FinishMinute', time.minute));
+                            console.log("SAVED THE START HOUR?",hmFS.SysProSetInt('StartHour',time.hour));
+                            console.log("SAVED THE START MINUTE?",hmFS.SysProSetInt('StartMinute',0));
+                            console.log("SAVED THE MODE?", hmFS.SysProSetInt('Mode', 4));
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log("SELECTED MODE IS", hmFS.SysProGetInt('Mode'));
+                }
+            }
         })
     }
 })

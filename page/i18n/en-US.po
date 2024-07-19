@@ -9,3 +9,9 @@ msgstr "Optimus"
 
 msgid "Work"
 msgstr "Work"
+
+msgid "Focus"
+msgstr "Focus"
+
+msgid "Next 2 hours"
+msgstr "Next 2 hours"

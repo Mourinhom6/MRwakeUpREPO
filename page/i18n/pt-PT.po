@@ -9,3 +9,6 @@ msgstr "Otimizado"
 
 msgid "Work"
 msgstr "Trabalho"
+
+msgid "Next 2 hours"
+msgstr "Próximas 2 horas"
