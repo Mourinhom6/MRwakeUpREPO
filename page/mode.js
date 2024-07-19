@@ -158,5 +158,48 @@ Page({
                 }
             }
         })
+        
+        const button1 = modeGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+            x: 0,
+            y: 50,
+            w: 64,
+            h: 64
+        })
+        const button2 = modeGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+            x: 0,
+            y: 120,
+            w: 64,
+            h: 64
+        })
+        const button3 = modeGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+            x: 0,
+            y: 190,
+            w: 64,
+            h: 64
+        })
+        const button4 = modeGroup.createWidget(hmUI.widget.STATE_BUTTON, {
+            x: 0,
+            y: 260,
+            w: 64,
+            h: 64
+        })
+        mode = hmFS.SysProGetInt('Mode')
+        console.log(mode)
+        modeGroup.setProperty(hmUI.prop.INIT, button3);
+        switch (mode) {
+            case 1:
+                modeGroup.setProperty(hmUI.prop.INIT, button1);
+                break;
+            case 2:
+                modeGroup.setProperty(hmUI.prop.INIT, button2);
+                break;
+            case 3:
+                modeGroup.setProperty(hmUI.prop.INIT, button3);
+                break;
+            case 4:
+                modeGroup.setProperty(hmUI.prop.INIT, button4);
+                break;
+        }
+
     }
 })

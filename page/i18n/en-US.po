@@ -15,3 +15,13 @@ msgstr "Focus"
 
 msgid "Next 2 hours"
 msgstr "Next 2 hours"
+
+
+msgid "Mr WakeUp"
+msgstr "Mr WakeUp"
+
+msgid "measures your"
+msgstr "measures your"
+
+msgid "heart rate,"
+msgstr "heart rate,"

@@ -12,3 +12,13 @@ msgstr "Trabalho"
 
 msgid "Next 2 hours"
 msgstr "Próximas 2 horas"
+
+
+msgid "Mr WakeUp"
+msgstr "O Mr WakeUp"
+
+msgid "measures your"
+msgstr "mede a tua"
+
+msgid "heart rate,"
+msgstr "frequência"
