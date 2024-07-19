@@ -1,0 +1,11 @@
+msgid "Grind"
+msgstr "Grind"
+
+msgid "All day"
+msgstr "24/7"
+
+msgid "Optimus"
+msgstr "Otimizado"
+
+msgid "Work"
+msgstr "Trabalho"
