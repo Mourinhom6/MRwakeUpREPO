@@ -246,5 +246,78 @@ Page({
           text_style: hmUI.text_style.NONE,
           text: gettext("of every time")
         })
+        hmUI.createWidget(hmUI.widget.TEXT, {
+          x: 0,
+          y: 640,
+          w: DEVICE_WIDTH,
+          h: 40,
+          color: 0xffffff,
+          text_size: TEXT_SIZE,
+          align_h: hmUI.align.LEFT_H,
+          align_v: hmUI.align.CENTER_V,
+          text_style: hmUI.text_style.NONE,
+          text: gettext("you fall asleep")
+        })
+        hmUI.createWidget(hmUI.widget.TEXT, {
+          x: 0,
+          y: 670,
+          w: DEVICE_WIDTH,
+          h: 40,
+          color: 0xffffff,
+          text_size: TEXT_SIZE,
+          align_h: hmUI.align.LEFT_H,
+          align_v: hmUI.align.CENTER_V,
+          text_style: hmUI.text_style.NONE,
+          text: gettext("each day, for")
+        })
+        hmUI.createWidget(hmUI.widget.TEXT, {
+          x: 0,
+          y: 700,
+          w: DEVICE_WIDTH,
+          h: 40,
+          color: 0xffffff,
+          text_size: TEXT_SIZE,
+          align_h: hmUI.align.LEFT_H,
+          align_v: hmUI.align.CENTER_V,
+          text_style: hmUI.text_style.NONE,
+          text: gettext("future data")
+        })
+        hmUI.createWidget(hmUI.widget.TEXT, {
+          x: 0,
+          y: 730,
+          w: DEVICE_WIDTH,
+          h: 40,
+          color: 0xffffff,
+          text_size: TEXT_SIZE,
+          align_h: hmUI.align.LEFT_H,
+          align_v: hmUI.align.CENTER_V,
+          text_style: hmUI.text_style.NONE,
+          text: gettext("analysis and")
+        })
+        hmUI.createWidget(hmUI.widget.TEXT, {
+          x: 0,
+          y: 760,
+          w: DEVICE_WIDTH,
+          h: 40,
+          color: 0xffffff,
+          text_size: TEXT_SIZE,
+          align_h: hmUI.align.LEFT_H,
+          align_v: hmUI.align.CENTER_V,
+          text_style: hmUI.text_style.NONE,
+          text: gettext("display.")
+        })
+        hmUI.createWidget(hmUI.widget.BUTTON, {
+          x: 0,
+          y: 810,
+          w: DEVICE_WIDTH,
+          h: 50,
+          radius: 25,
+          normal_color: 0x383838,
+          press_color: 0xbcbcbc,
+          text: gettext('OK'),
+          click_func: () => {
+            hmApp.goBack()
+          },
+        })
     }
 })

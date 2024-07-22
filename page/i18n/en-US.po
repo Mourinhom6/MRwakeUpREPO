@@ -76,3 +76,18 @@ msgstr "each day, for"
 
 msgid "of every time"
 msgstr "future data"
+
+msgid "you fall asleep"
+msgstr "analysis and"
+
+msgid "each day, for"
+msgstr "data display"
+
+msgid "future data"
+msgstr "on the watch"
+
+msgid "analysis and"
+msgstr "band and"
+
+msgid "display."
+msgstr "cellphone."

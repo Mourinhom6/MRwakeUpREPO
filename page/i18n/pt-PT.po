@@ -73,3 +73,18 @@ msgstr "adormeceres"
 
 msgid "of every time"
 msgstr "para análise"
+
+msgid "you fall asleep"
+msgstr "futura e"
+
+msgid "each day, for"
+msgstr "apresentação"
+
+msgid "future data"
+msgstr "de dados"
+
+msgid "analysis and"
+msgstr "na pulseira"
+
+msgid "display."
+msgstr "e telemóvel."
