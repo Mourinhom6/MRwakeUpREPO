@@ -22,3 +22,54 @@ msgstr "mede a tua"
 
 msgid "heart rate,"
 msgstr "frequência"
+
+msgid "compares it"
+msgstr "cardíaca,"
+
+msgid "to previous"
+msgstr "compara-a às"
+
+msgid "measurements"
+msgstr "medições"
+
+msgid "and analyses it,"
+msgstr "anteriores"
+
+msgid "in order to find"
+msgstr "e analisa-as"
+
+msgid "out if you are"
+msgstr "para saber"
+
+msgid "awake or not. If"
+msgstr "se estás"
+
+msgid "you fall asleep,"
+msgstr "acordado ou"
+
+msgid "Mr WakeUp will"
+msgstr "não. Se"
+
+msgid "wake you up by"
+msgstr "adormeceres,"
+
+msgid "vibrating and"
+msgstr "o Mr WakeUp"
+
+msgid "sending a"
+msgstr "acordar-te-á"
+
+msgid "notification to"
+msgstr "vibrando"
+
+msgid "your mobile"
+msgstr "e registará"
+
+msgid "app, as well as"
+msgstr "sempre que"
+
+msgid "keeping track"
+msgstr "adormeceres"
+
+msgid "of every time"
+msgstr "para análise"

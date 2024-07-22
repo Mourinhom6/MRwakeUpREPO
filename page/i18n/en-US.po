@@ -25,3 +25,54 @@ msgstr "measures your"
 
 msgid "heart rate,"
 msgstr "heart rate,"
+
+msgid "compares it"
+msgstr "compares it"
+
+msgid "to previous"
+msgstr "to previous"
+
+msgid "measurements"
+msgstr "measurements"
+
+msgid "and analyses it,"
+msgstr "and analyses it,"
+
+msgid "in order to find"
+msgstr "in order to find"
+
+msgid "out if you are"
+msgstr "out if you are"
+
+msgid "awake or not. If"
+msgstr "awake or not. If"
+
+msgid "you fall asleep,"
+msgstr "you fall asleep,"
+
+msgid "Mr WakeUp will"
+msgstr "Mr WakeUp will"
+
+msgid "wake you up by"
+msgstr "wake you up by"
+
+msgid "vibrating and"
+msgstr "vibrating as"
+
+msgid "sending a"
+msgstr "well as"
+
+msgid "notification to"
+msgstr "keeping track"
+
+msgid "your mobile"
+msgstr "of every time"
+
+msgid "app, as well as"
+msgstr "you fall asleep"
+
+msgid "keeping track"
+msgstr "each day, for"
+
+msgid "of every time"
+msgstr "future data"
