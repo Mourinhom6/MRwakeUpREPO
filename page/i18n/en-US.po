@@ -1,3 +1,20 @@
+msgid "You have"
+msgstr "You have"
+
+msgid "fallen asleep"
+msgstr "fallen asleep"
+
+//Able both singular or plural
+
+msgid "time"
+msgstr "time"
+
+msgid "times"
+msgstr "times"
+
+msgid "today"
+msgstr "today"
+
 msgid "Grind"
 msgstr "Grind"
 
