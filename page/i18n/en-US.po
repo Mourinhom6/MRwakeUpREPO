@@ -15,6 +15,30 @@ msgstr "times"
 msgid "today"
 msgstr "today"
 
+msgid "Excellent Bro!"
+msgstr "Excellent Bro!"
+
+msgid "Keep at it!"
+msgstr "Keep at it!"
+
+msgid "Nice Job!"
+msgstr "Nice Job!"
+
+msgid "Tired already?"
+msgstr "Tired already?"
+
+msgid "Need a coffee?"
+msgstr "Need a coffee?"
+
+msgid "Too much?"
+msgstr "Too much?"
+
+msgid "You're losing it..."
+msgstr "You're losing it..."
+
+msgid "You're wasted"
+msgstr "You're wasted"
+
 msgid "Grind"
 msgstr "Grind"
 

@@ -15,6 +15,30 @@ msgstr "vezes"
 msgid "today"
 msgstr "hoje"
 
+msgid "Excellent Bro!"
+msgstr "Excelente!"
+
+msgid "Keep at it!"
+msgstr "Continue!"
+
+msgid "Nice Job!"
+msgstr "Bom trabalho!"
+
+msgid "Tired already?"
+msgstr "Já cansado?"
+
+msgid "Need a coffee?"
+msgstr "Café?"
+
+msgid "Too much?"
+msgstr "Demasiado?"
+
+msgid "You're losing it..."
+msgstr "Aguenta mais?"
+
+msgid "You're wasted"
+msgstr "Estás morto"
+
 msgid "Grind"
 msgstr "Grind"
 

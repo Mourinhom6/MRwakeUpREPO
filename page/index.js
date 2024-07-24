@@ -57,6 +57,7 @@ Page({
             align_v: hmUI.align.CENTER_V,
             text_style: hmUI.text_style.NONE,
             text: //(GET the sleep day conter)
+            //must have something like if1=time else times
           })
 
 
@@ -84,6 +85,79 @@ Page({
             pos_y: 0,
             src: 'graphic.png',
           })
+
+    console.log("TIMES YOU GOT AWAKE")
+    hmUI.createWidget(hmUI.widget.IMG, {
+      x: 11+21.5*(
+      (hmFS.SysProGetInt('SleepyDayCounter') >= 0
+      && 
+      hmFS.SysProGetInt('SleepyDayCounter') <= 3)?0:
+      (hmFS.SysProGetInt('SleepyDayCounter') <= 7)?1:
+      (hmFS.SysProGetInt('SleepyDayCounter') <= 11)?2:
+      (hmFS.SysProGetInt('SleepyDayCounter') <= 15)?3:
+      (hmFS.SysProGetInt('SleepyDayCounter') <= 19)?4:
+      (hmFS.SysProGetInt('SleepyDayCounter') <= 23)?5:
+      (hmFS.SysProGetInt('SleepyDayCounter') <= 27)?6:7),
+      y: 218,
+      w: 24,
+      h: 24,
+      pos_x: 0,
+      pos_y: 0,
+      src: 'arrowDown.png'
+    })
+
+    hmUI.createWidget(hmUI.widget.TEXT, {
+      x: 0,
+      y: 240,
+      w: DEVICE_WIDTH,
+      h: 40,
+      color: 0xffffff,
+      text_size: 25,
+      align_h: hmUI.align.CENTER_H,
+      align_v: hmUI.align.CENTER_V,
+      text_style: hmUI.text_style.NONE,
+      text: (
+        (hmFS.SysProGetInt('SleepyDayCounter') >= 0 
+        && 
+        hmFS.SysProGetInt('SleepyDayCounter') <= 3)?gettext("Excellent Bro!"):
+        (hmFS.SysProGetInt('SleepyDayCounter') <= 7)?gettext("Keep at it!"):
+        (hmFS.SysProGetInt('SleepyDayCounter') <= 11)?gettext("Nice Job!"):
+        (hmFS.SysProGetInt('SleepyDayCounter') <= 15)?gettext("Tired already?"):
+        (hmFS.SysProGetInt('SleepyDayCounter') <= 19)?gettext("Need a coffee?"):
+        (hmFS.SysProGetInt('SleepyDayCounter') <= 23)?gettext("Too much?"):
+        (hmFS.SysProGetInt('SleepyDayCounter') <= 27)?gettext("You're losing it..."):gettext("You're wasted")
+      )
+    })
+    hmUI.createWidget(hmUI.widget.BUTTON, {
+      x: 0,
+      y: 300,
+      w: DEVICE_WIDTH/2,
+      h: 60,
+      normal_src: 'infobtn.png',
+      press_src: 'infobtn.png',
+      click_func: () => {
+        console.log("Info button clicked");
+        hmApp.gotoPage({
+          file: 'page/info'
+        });
+      },
+    })
+    console.log("TEST BUILD")
+    hmUI.createWidget(hmUI.widget.BUTTON, {
+      x: DEVICE_WIDTH/2,
+      y: 300,
+      w: DEVICE_WIDTH/2,
+      h: 60,
+      normal_src: 'settingsbtn.png',
+      press_src: 'settingsbtn.png',
+      click_func: () => {
+        console.log("Settings button clicked");
+        hmApp.gotoPage({
+          file: 'page/settings'
+        });
+      },
+    })
+    // END // APP FRONT-END
         },
         onDestroy(){
         },
