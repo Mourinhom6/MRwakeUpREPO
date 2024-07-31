@@ -160,6 +160,22 @@ Page({
     // END // APP FRONT-END
         },
         onDestroy(){
+          console.log("TEST ONDESTROY")
+    logger.log('app onDestroy invoked');
+    // writeFileSync(this.state.dataList, false)
+
+  },
+        fetchData(packet) {
+          messageBuilder.request({
+              method: "GET_DATA",
+              params: {
+                packet: packet
+              }
+          }).then((data) => {
+            logger.log("receive data");
+            const { result } = data;
+            const text = JSON.parse(result);
+          });
         },
         onMessage() {
           messageBuilder.on('call', ({ payload: buf }) => {
