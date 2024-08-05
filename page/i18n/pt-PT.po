@@ -38,6 +38,22 @@ msgstr "Aguenta mais?"
 
 msgid "You're wasted"
 msgstr "Estás morto"
+msgid "Wake up Mate!"
+msgstr "Acorda Bro!"
+
+msgid "You have fallen"
+msgstr "Adormeceste"
+
+msgid "asleep during"
+msgstr "durante o "
+
+msgid "the day!"
+msgstr "dia!"
+
+
+msgid "Mode"
+msgstr "Modo"
+
 
 msgid "Grind"
 msgstr "Grind"
@@ -50,6 +66,9 @@ msgstr "Otimizado"
 
 msgid "Work"
 msgstr "Trabalho"
+
+msgid "Focus"
+msgstr "Foco"
 
 msgid "Next 2 hours"
 msgstr "Próximas 2 horas"

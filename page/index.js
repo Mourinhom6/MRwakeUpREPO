@@ -56,7 +56,7 @@ Page({
             align_h: hmUI.align.CENTER_H,
             align_v: hmUI.align.CENTER_V,
             text_style: hmUI.text_style.NONE,
-            text: //(GET the sleep day conter)
+            text: hmFS.SysProGetInt('SleepyDayCounter')==1?hmFS.SysProGetInt('SleepyDayCounter')+" "+gettext("time"):hmFS.SysProGetInt('SleepyDayCounter')+" "+gettext("times")
             //must have something like if1=time else times
           })
 

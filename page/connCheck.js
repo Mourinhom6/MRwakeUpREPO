@@ -1,6 +1,10 @@
+import { gettext } from 'i18n'
 const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } =
   hmSetting.getDeviceInfo();
 
+const WAKE_UP_INTERVAL_SECONDS = 60 // this value must be higher than the screen on time on app
+const POLL_ALARM_PREF_ID = 'my_bluetooth_poll_alarm'
+const APP_ID = 1047938
 const heart = hmSensor.createSensor(hmSensor.id.HEART)
 const vibrate = hmSensor.createSensor(hmSensor.id.VIBRATE)
 const TEXT_SIZE = 20
@@ -8,7 +12,32 @@ var counterValue = 0
 
 Page({
     onInit(param) {
-    },
+        console.log("CONNCHECK INIT:")
+    console.log("ALARM:")
+    console.log(param)
+    vibrate.stop() // stop any vibration
+    vibrate.scene = 5 // set the vibration scene to 27 (1000ms vibration, high intensity)
+
+    // verify if this launch was triggered by an alarm or not
+    if(param === POLL_ALARM_PREF_ID) { 
+      const existingAlarm = hmFS.SysProGetInt(POLL_ALARM_PREF_ID) // get existing alarm reference from system preferences
+      if(existingAlarm) {
+        // cancel existing alarm
+        hmApp.alarmCancel(existingAlarm)
+      }
+    }
+
+    // always create a new alarm to avoid alarm trigger while using the app
+    const alarm = hmApp.alarmNew({
+      file: 'page/connCheck',
+      appid: APP_ID,
+      delay: WAKE_UP_INTERVAL_SECONDS,
+      param: POLL_ALARM_PREF_ID
+    })
+
+    hmFS.SysProSetInt(POLL_ALARM_PREF_ID, alarm) // Save new alarm reference on system preferences
+    console.log("ALARM CREATED:")
+  },
 
 
     build() {
@@ -51,7 +80,7 @@ Page({
                         hmFS.SysProSetInt('SleepyDayCounter', 1)
                     }
 
-      //third trigger display
+                    //third trigger display
                     hmUI.createWidget(hmUI.widget.IMG, {
                         x: 0,
                         y: 40,
@@ -146,9 +175,17 @@ Page({
                         hmApp.exit()
                         },
                     })
+                }
+            } 
+            else {
+            console.log("INFO: NOT IN TIME RANGE")
+            console.log("Start time: " + startDate)
+            console.log("Now: " + now)
+            console.log("Finish time: " + finishDate)
+            hmApp.exit()
             }
-        }
-        } else {
+        } 
+        else {
             console.log("INFO: NOT SWITCHED ON")
             console.log(hmFS.SysProGetInt('AlarmSet'))
             hmApp.exit()

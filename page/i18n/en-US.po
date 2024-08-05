@@ -38,6 +38,22 @@ msgstr "You're losing it..."
 
 msgid "You're wasted"
 msgstr "You're wasted"
+msgid "Wake up Mate!"
+msgstr "Wake up Mate!"
+
+msgid "You have fallen"
+msgstr "You have fallen"
+
+msgid "asleep during"
+msgstr "asleep during"
+
+msgid "the day!"
+msgstr "the day!"
+
+
+msgid "Mode"
+msgstr "Mode"
+
 
 msgid "Grind"
 msgstr "Grind"
