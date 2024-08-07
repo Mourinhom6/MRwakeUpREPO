@@ -20,6 +20,87 @@ Page({
     onInit(){
       this.onMessage() // Starts the message listener
       this.getThresHold() // will get trshhold when changed from the phone
+      // SETS THE AlarmSet VARIABLE
+      console.log(hmFS.SysProGetInt('AlarmSet'))
+      if(hmFS.SysProGetInt('AlarmSet') != 1 && hmFS.SysProGetInt('AlarmSet') != -1){
+        console.log("TRYING TO SET VARIABLE... 0 FOR SUCCESS:", hmFS.SysProSetInt('AlarmSet', -1));
+      }
+      //SETS THE TIME VARIABLES
+      console.log(hmFS.SysProGetInt("FinishHour"))
+      if(hmFS.SysProGetInt("FinishHour") == undefined && hmFS.SysProGetInt("FinishMinute") && undefined && hmFS.SysProGetInt("StartHour") == undefined && hmFS.SysProGetInt("StartMinute") == undefined && hmFS.SysProGetInt("Mode") == undefined){
+        console.log("SAVED THE FINISH HOUR?",hmFS.SysProSetInt('FinishHour', 23));
+        console.log("SAVED THE FINISH MINUTE? ",hmFS.SysProSetInt('FinishMinute', 59));
+        console.log("SAVED THE START HOUR?",hmFS.SysProSetInt('StartHour',0));
+        console.log("SAVED THE START MINUTE?",hmFS.SysProSetInt('StartMinute',0));
+        console.log("SAVED THE MODE?", hmFS.SysProSetInt('Mode', 1));
+      }
+
+
+      const time = hmSensor.createSensor(hmSensor.id.TIME)
+      if (hmFS.SysProGetInt("SleepyCurrentDay") == undefined && hmFS.SysProGetInt("SleepyCurrentMonth") == undefined && hmFS.SysProGetInt("SleepyCurrentYear") == undefined && hmFS.SysProGetInt("SleepyDayCounter") == undefined) {
+        // DATE NOT DEFINED?
+        
+        const time = hmSensor.createSensor(hmSensor.id.TIME)
+        console.log("SAVED THE CURRENT DAY?",hmFS.SysProSetInt('SleepyCurrentDay', 1));
+        console.log("SAVED THE CURRENT MONTH?",hmFS.SysProSetInt('SleepyCurrentMonth', 1));
+        console.log("SAVED THE CURRENT YEAR?",hmFS.SysProSetInt('SleepyCurrentYear', 1900));
+        console.log("SAVED THE SLEEPY DAY COUNTER?",hmFS.SysProSetInt('SleepyDayCounter', 0));
+      } else if (hmFS.SysProGetInt('SleepyCurrentYear') != time.year || hmFS.SysProGetInt('SleepyCurrentMonth') != time.month || hmFS.SysProGetInt('SleepyCurrentDay') != time.day){
+        // DATE CHANGES?
+
+        // START // SEND YESTERDAY'S VALUES TO THE WEBSITE
+        console.log("INFO: SENDING COUNTER VALUE TO SIDE SERVICE")
+        packet = JSON.stringify({
+          noTimesWakeUp: hmFS.SysProGetInt('SleepyDayCounter'),
+          day: hmFS.SysProGetInt('SleepyCurrentDay'),
+          month: hmFS.SysProGetInt('SleepyCurrentMonth'),
+          year: hmFS.SysProGetInt('SleepyCurrentYear')
+        })
+        this.fetchData(packet);
+        counterValue = hmFS.SysProGetInt('SleepyDayCounter');
+        hmBle.createConnect(function (index, data) {
+          hmBle.send(packet, packet.length); //supostamente como é int n é preciso o counterValue.length
+        });
+        hmBle.disConnect();
+        console.log(hmBle.connectStatus())  // Print Bluetooth connection status
+        hmBle.addListener(function (status) { // Add listener for Bluetooth connection status
+          console.log(status)
+        })
+        // END // SEND YESTERDAY'S VALUES TO THE WEBSITE
+
+        // START // RESET YESTERDAY'S COUNTERS TO USE TODAY
+        console.log("INFO: NEW SLEEP DAY - RESETTING COUNTER")
+        console.log(hmFS.SysProGetInt('SleepyCurrentDay'), hmFS.SysProGetInt('SleepyCurrentMonth'), hmFS.SysProGetInt('SleepyCurrentYear'))
+        console.log(time.day, time.month, time.year)
+        console.log(hmFS.SysProGetInt('SleepyCurrentYear') == time.year, hmFS.SysProGetInt('SleepyCurrentMonth') == time.month, hmFS.SysProGetInt('SleepyCurrentDay') == time.day);
+        hmFS.SysProSetInt('SleepyCurrentDay', time.day)
+        hmFS.SysProSetInt('SleepyCurrentMonth', time.month)
+        hmFS.SysProSetInt('SleepyCurrentYear', time.year)
+        hmFS.SysProSetInt('SleepyDayCounter', 0)
+        // END // RESET YESTERDAY'S COUNTERS TO USE TODAY
+      }
+
+
+      // START // SET NEW ALARM TO AVOID alarm trigger while using the app
+      console.log(hmFS.SysProGetInt('AlarmSet'))
+      const existingAlarm = hmFS.SysProGetInt(POLL_ALARM_PREF_ID) // get existing alarm reference from system preferences
+        if(existingAlarm) {
+          // cancel existing alarm
+          hmApp.alarmCancel(existingAlarm)
+          isAlarmToSet = true;
+        }
+      console.log("CONNCHECK INIT:")
+      // always create a new alarm to avoid alarm trigger while using the app
+      const alarm = hmApp.alarmNew({
+        file: 'page/connCheck',
+        appid: APP_ID,
+        delay: WAKE_UP_INTERVAL_SECONDS,
+        param: POLL_ALARM_PREF_ID
+      })
+      console.log("ALARM CONST CREATED")
+      hmFS.SysProSetInt(POLL_ALARM_PREF_ID, alarm) // Save new alarm reference on system preferences
+      console.log("ALARM CREATED:")
+      // END // SET NEW ALARM TO AVOID alarm trigger while using the app
     },
     build() {
         hmUI.createWidget(hmUI.widget.TEXT, {
@@ -60,9 +141,6 @@ Page({
             //must have something like if1=time else times
           })
 
-
-
-
           hmUI.createWidget(hmUI.widget.TEXT, {
             x: 0,
             y: 160,
@@ -85,7 +163,6 @@ Page({
             pos_y: 0,
             src: 'graphic.png',
           })
-
     console.log("TIMES YOU GOT AWAKE")
     hmUI.createWidget(hmUI.widget.IMG, {
       x: 11+21.5*(
