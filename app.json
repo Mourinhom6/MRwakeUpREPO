@@ -1,0 +1,69 @@
+{
+    "configVersion": "v1",
+    "app": {
+      "appId": 1047938,
+      "appName": "MrWakeUp",
+      "appType": "app",
+      "version": {
+        "code": 1,
+        "name": "1.0.0"
+      },
+      "icon": "icon.png",
+      "vender": "zepp",
+      "description": "An app for narcolepsy"
+    },
+    "permissions": [],
+    "runtime": {
+      "apiVersion": {
+        "compatible": "1.0.0",
+        "target": "1.0.1",
+        "minVersion": "1.0.0"
+      }
+    },
+    "targets": {
+      "194x368-amazfit-band-7": {
+        "module": {
+          "page": {
+            "pages": [
+              "page/index",
+              "page/connCheck",
+              "page/info",
+              "page/settings",
+              "page/mode"
+            ]
+          },
+          "app-side": {
+            "path": "app-side/index"
+          },
+          "setting": {
+            "path": "setting/index"
+          }
+        },
+        "platforms": [
+          {
+            "name": "Bari(国内NFC版本)",
+            "deviceSource": 252
+          },
+          {
+            "name": "Bari(国内标准版本)",
+            "deviceSource": 253
+          },
+          {
+            "name": "Bari(国际标准版本)",
+            "deviceSource": 254
+          }
+        ],
+        "designWidth": 194
+      }
+    },
+    "i18n": {
+      "en-US": {
+        "appName": "MrWakeUp"
+      },
+      "pt-PT": {
+        "appName": "MrWakeUp"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+  

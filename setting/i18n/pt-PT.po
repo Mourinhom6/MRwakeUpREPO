@@ -1,0 +1,5 @@
+msgid "New Threshold"
+msgstr "Novo Limite"
+
+msgid "New API Code"
+msgstr "Nova chave de API"
