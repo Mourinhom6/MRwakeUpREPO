@@ -2,6 +2,33 @@ import { MessageBuilder } from "../shared/message";
 import { DEFAULT_THRESHOLD } from './../utils/constants'
 const messageBuilder = new MessageBuilder();
 
+async function fetchData(ctx) {
+    packetParsed = JSON.parse(packet)
+    packetParsed.update({'APIKEY':settings.settingsStorage.getItem('APIKEY')})
+    packet = JSON.stringify(packetParsed)
+    var formData = new FormData();
+    formData.append('packet', packet)
+    try {
+      const res = await fetch({
+        url: 'https://mrwakeup.pt/api/mouro.php', //page do site MR. WakeUP
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: formData
+      })
+      const resBody = typeof res.body === 'string' ? JSON.parse(res.body) : res.body
+  
+      ctx.response({
+        data: { result: resBody },
+      })
+  
+      } catch (error) {
+      ctx.response({
+        data: { result: "ERROR" },
+      });
+    }
+  };
 AppSideService({
     onInit() {
         messageBuilder.listen(() => {})
