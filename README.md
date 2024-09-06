@@ -3,7 +3,7 @@
 
 Mr. WakeUP is an app designed for ZeppOS watches that helps you stay awake after you fall asleep. It is particularly useful for people with Narcolepsy, students studying through the night, or night workers staying alert during their shifts.
 
-![Mr. WakeUP Logo](assets\194x368-amazfit-band-7\icon.png) <!-- Replace with your image path -->
+![Mr. WakeUP Logo](icon.png) <!-- Replace with your image path -->
 
 ## Badges
 <!-- Add your badges here -->
@@ -41,7 +41,7 @@ To see the project in action, you need to install the simulator and use the ZEUS
 
 Once the project is set up, use the simulator to test and interact with Mr. WakeUP. Adjust settings as needed to ensure it meets your needs for staying awake.
 
-![Simulator Screenshot](assets\194x368-amazfit-band-7\Simulator_screenshot.png) <!-- Replace with your image path -->
+![Simulator Screenshot](Simulator_screenshot.png) <!-- Replace with your image path -->
 
 ## Contributing
 
@@ -63,7 +63,7 @@ Contributions are welcome! Please follow these steps:
 
 For more detailed information and documentation, visit the [ZeppOS CLI Documentation](https://docs.zepp.com/docs/1.0/guides/tools/cli/).
 
-![ZeppOS Logo](assets\194x368-amazfit-band-7\zeppos-removebg-preview.png) <!-- Replace with your image path -->
+![ZeppOS Logo](zeppos-removebg-preview.png) <!-- Replace with your image path -->
 
 
 ## Licença
